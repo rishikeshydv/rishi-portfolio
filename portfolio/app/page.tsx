@@ -89,7 +89,7 @@ export default function Home() {
                   <div className="font-medium">Software & AI Engineering Intern</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
                     <li>Built Scail from scratch using Typescript, React, Nextjs and AWS Services.</li>
-                    <li>Added 'analytics' & 'reports' subdomains to Scail using Rust, Tensorflow & Keras to add AI Layers in real estate business.</li>
+                    <li>Added &apos; analytics &apos; & &apos; reports &apos; subdomains to Scail using Rust, Tensorflow & Keras to add AI Layers in real estate business.</li>
                     <li>
                       Collaborated with Figma Design team for better UI, minified frontend code, blocked third-party cookies, and added website firewall for security.
                     </li>
