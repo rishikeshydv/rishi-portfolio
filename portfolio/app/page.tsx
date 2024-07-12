@@ -49,10 +49,10 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-medium text-muted-foreground">Software, AI & Web3 Engineer</h2>
             <p className="text-muted-foreground">
             My name is Rishikesh, and I am a Junior at Caldwell for a Bachelor of Science (BS) in Computer Science and Mathematics. 
-            I’m do a lot of Machine Learning, Web3 & Full Stack ofcourse. 
-            I’m most passionate about the use of technologies to solve unsolved problems. 
+            I&apos;m do a lot of Machine Learning, Web3 & Full Stack ofcourse. 
+            I&apos;m most passionate about the use of technologies to solve unsolved problems. 
             I like to spend my free time reading and listening to podcasts, with some of my favorite topics being economics and spirituality. 
-            If you’d like to connect, please reach out to <strong>rishikeshadh4 at gmail dot com</strong>.
+            If you&apos;d like to connect, please reach out to <strong>rishikeshadh4 at gmail dot com</strong>.
             </p>
           </div>
           <div className="flex flex-col items-center justify-center md:items-end md:justify-end">
