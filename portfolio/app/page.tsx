@@ -82,17 +82,15 @@ export default function Home() {
             <div className="space-y-6">
               <div className="grid md:grid-cols-[1fr_3fr] gap-4">
                 <div className="text-muted-foreground">
-                  <Link href={'https://www.scail.it/'} className="font-medium underline">Scail</Link>
-                  <div className="text-sm">2024 May - Present</div>
+                  <Link href={'https://www.scail.it/'} className="font-medium underline">Stealth Startup</Link>
+                  <div className="text-sm">2023 October - Present</div>
                 </div>
                 <div>
                   <div className="font-medium">Software & AI Engineering Intern</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Built Scail from scratch using Typescript, React, Nextjs and AWS Services.</li>
-                    <li>Added &apos; analytics &apos; & &apos; reports &apos; subdomains to Scail using Rust, Tensorflow & Keras to add AI Layers in real estate business.</li>
-                    <li>
-                      Collaborated with Figma Design team for better UI, minified frontend code, blocked third-party cookies, and added website firewall for security.
-                    </li>
+                    <li>Built the platform from scratch using Typescript, React, Next.js and AWS Services.
+</li>
+                    <li>Developed &apos;analytics&apos; and &apos;reports&apos; subdomains for the platform, leveraging Rust, TensorFlow, and Keras to integrate advanced AI-driven insights and predictive intelligence, enhancing data-driven decision-making in real estate.</li>
                   </ul>
                 </div>
               </div>
@@ -104,9 +102,10 @@ export default function Home() {
                 <div>
                   <div className="font-medium">Software Engineering Intern</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Developed and maintained 10+ webapps for trailer renter and car dealer clients, leveraging my expertise in JavaScript and MongoDB.</li>
-                    <li>Implemented user interactive Next.js frontend that resulted in 45% increase in customer-to-business conversions, helping clients achieve higher engagement and business growth.</li>
-                    <li>Optimized webapps loading times by migrating to the new microservices architecture via Docker and Kubernetes, resulting in an average 30% reduction in page load times.</li>
+                    <li>Created adaptive NPCs and real-time difficulty scaling using reinforcement learning and neural networks, enhancing player immersion through AI-driven responses.</li>
+                    <li> Implemented deep learning models for procedural content generation, enabling dynamic environments and unpredictable challenges.</li>
+                    <li>Optimized game engine performance with GPU-accelerated neural networks for real-time AI processing, delivering smooth and responsive AI interactions.</li>
+                    <li>Collaborated on AI-based predictive player modeling to refine game balancing, tailoring experiences based on player behavior and preferences.</li>
                   </ul>
                 </div>
               </div>
@@ -152,7 +151,7 @@ export default function Home() {
                 <div>
                   <div className="font-medium">Bachelor of Science in Computer Science & Mathematics</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li><strong>GPA:</strong> 3.83/4.00</li>
+                    <li><strong>GPA:</strong> 3.85/4.00</li>
                     <li><strong>Courseworks:</strong> Data Structures & Algorithms, Database Management System, Operating Systems, Full Stack Web Dev, Intro to Machine Learning, Linear Algebra, Probability & Statistics I & II, Programming Languages</li>
                   </ul>
                 </div>
