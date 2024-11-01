@@ -82,8 +82,8 @@ export default function Home() {
             <div className="space-y-6">
               <div className="grid md:grid-cols-[1fr_3fr] gap-4">
                 <div className="text-muted-foreground">
-                  <Link href={'https://www.scail.it/'} className="font-medium underline">Stealth Startup</Link>
-                  <div className="text-sm">2023 October - Present</div>
+                  <Link href={'https://www.scail.it/'} className="font-medium underline">Scail</Link>
+                  <div className="text-sm">2024 May - 2024 August</div>
                 </div>
                 <div>
                   <div className="font-medium">Software & AI Engineering Intern</div>
