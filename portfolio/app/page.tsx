@@ -64,7 +64,7 @@ export default function Home() {
             className={`${styles.circular}`} // Add a new class
           />
            <nav className="flex items-center gap-4 md:mr-10 mt-4">
-          <Link href="https://www.linkedin.com/in/rishikesh-y-75846420b/" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+          <Link href="https://www.linkedin.com/in/rishikesh-y-0194b0336/" className="text-xs hover:underline underline-offset-4" prefetch={false}>
           <FaLinkedin className="md:w-6 md:h-6"/>
           </Link>
           <Link href="https://github.com/rishikeshydv" className="text-xs hover:underline underline-offset-4" prefetch={false}>
