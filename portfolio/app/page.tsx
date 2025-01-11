@@ -57,7 +57,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center justify-center md:items-end md:justify-end">
                     <Image
-            src="/profile.jpg"
+            src="/linkedin.jpg"
             width={200}
             height={200}
             alt="Rishi's profile picture"
