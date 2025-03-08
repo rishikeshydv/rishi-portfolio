@@ -49,9 +49,9 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-medium text-muted-foreground">Software, AI & Web3 Engineer</h2>
             <p className="text-muted-foreground">
             My name is Rishikesh, and I am a Junior at Caldwell for a Bachelor of Science (BS) in Computer Science and Mathematics. 
-            I&apos; do a lot of Machine Learning, Web3 & Full Stack. 
-            I&apos;m most passionate about the use of technologies to solve unsolved problems. 
-            I like to spend my free time reading and listening to podcasts, with some of my favorite topics being economics and spirituality. 
+            I love doing Deep RL, Backend, and Web3 Dev. 
+            I&apos;m most passionate about the use of tech to solve problems that really matters (not leetcode ofc). 
+            I like to spend my free time reading and listening to podcasts, with some of my favorite topics being startups and AI. 
             If you&apos;d like to connect, please reach out to <strong>rishikeshadh4 at gmail dot com</strong>.
             </p>
           </div>
@@ -82,25 +82,23 @@ export default function Home() {
             <div className="space-y-6">
               <div className="grid md:grid-cols-[1fr_3fr] gap-4">
                 <div className="text-muted-foreground">
-                  <Link href={'https://www.scail.it/'} className="font-medium underline">Scail</Link>
-                  <div className="text-sm">2024 May - 2024 August</div>
+                  <Link href={'https://www.nextbrick.com/'} className="font-medium underline">NexBrick</Link>
+                  <div className="text-sm">2024 Feb - Presentt</div>
                 </div>
                 <div>
-                  <div className="font-medium">Software & AI Engineering Intern</div>
+                  <div className="font-medium">CEO & CTO</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Built the platform from scratch using Typescript, React, Next.js and AWS Services.
-</li>
-                    <li>Developed &apos;analytics&apos; and &apos;reports&apos; subdomains for the platform, leveraging Rust, TensorFlow, and Keras to integrate advanced AI-driven insights and predictive intelligence, enhancing data-driven decision-making in real estate.</li>
+                    <li>Revolutionizing real estate decisions with AI-driven data intelligence.</li>
                   </ul>
                 </div>
               </div>
               <div className="grid md:grid-cols-[1fr_3fr] gap-4">
                 <div className="text-muted-foreground">
                   <Link href={'https://tapdroprb.com/'} className="font-medium underline">Tapdrop Inc.</Link>
-                  <div className="text-sm">2023 May - 2023 August</div>
+                  <div className="text-sm">2022 August - 2025 Feb</div>
                 </div>
                 <div>
-                  <div className="font-medium">Software Engineering Intern</div>
+                  <div className="font-medium">Senior AI & Software Engineer</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
                     <li>Created adaptive NPCs and real-time difficulty scaling using reinforcement learning and neural networks, enhancing player immersion through AI-driven responses.</li>
                     <li> Implemented deep learning models for procedural content generation, enabling dynamic environments and unpredictable challenges.</li>
@@ -109,7 +107,7 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <div className="grid md:grid-cols-[1fr_3fr] gap-4">
+              {/* <div className="grid md:grid-cols-[1fr_3fr] gap-4">
                 <div className="text-muted-foreground">
                   <div className="font-medium underline">STEM Advance Summer Research Program</div>
                   <div className="text-sm">2023 May - 2023 August</div>
@@ -136,7 +134,7 @@ export default function Home() {
                     <li>Designed and customized responsive web based database management system software to help 8k+ university users manage personal and public data and process using Firebase and REST APIs</li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div>
@@ -151,8 +149,8 @@ export default function Home() {
                 <div>
                   <div className="font-medium">Bachelor of Science in Computer Science & Mathematics</div>
                   <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li><strong>GPA:</strong> 3.85/4.00</li>
-                    <li><strong>Courseworks:</strong> Data Structures & Algorithms, Database Management System, Operating Systems, Full Stack Web Dev, Intro to Machine Learning, Linear Algebra, Probability & Statistics I & II, Programming Languages</li>
+                    <li><strong>GPA:</strong> 3.93/4.00</li>
+                    <li><strong>Courseworks:</strong> SWE Capstone, Data Structures & Algorithms, Database Management System, Operating Systems, Full Stack Web Dev, Intro to Machine Learning, Linear Algebra, Probability & Statistics I & II, Programming Languages</li>
                   </ul>
                 </div>
               </div>
