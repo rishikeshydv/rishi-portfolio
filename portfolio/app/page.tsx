@@ -83,7 +83,7 @@ export default function Home() {
               <div className="grid md:grid-cols-[1fr_3fr] gap-4">
                 <div className="text-muted-foreground">
                   <Link href={'https://www.nextbrick.com/'} className="font-medium underline">NexBrick</Link>
-                  <div className="text-sm">2024 Feb - Presentt</div>
+                  <div className="text-sm">2024 Feb - Present</div>
                 </div>
                 <div>
                   <div className="font-medium">CEO & CTO</div>
