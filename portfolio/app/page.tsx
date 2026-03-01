@@ -1,253 +1,388 @@
+"use client";
+
 import poppins from "@/font/font";
-import Link from "next/link"
-import Image from 'next/image'
+import Image from "next/image";
+import Link from "next/link";
 import styles from "@/styles/Image.module.css";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { FiExternalLink } from "react-icons/fi";
+import { useState } from "react";
 
-import { SiTypescript } from "react-icons/si";
-import { FaGolang } from "react-icons/fa6";
-import { FaRust } from "react-icons/fa";
-import { FaPython } from "react-icons/fa";
+type ResourceLink = {
+  label: string;
+  href: string;
+};
 
-import { FaReact } from "react-icons/fa";
-import { FaNodeJs } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
-import { RiNextjsFill } from "react-icons/ri";
-import { SiVite } from "react-icons/si";
-import { SiTensorflow } from "react-icons/si";
-import { SiKeras } from "react-icons/si";
-import { SiApachekafka } from "react-icons/si";
+const experience = [
+  {
+    company: "ComplyAI",
+    role: "Founder",
+    location: "Caldwell, NJ",
+    period: "Oct 2025 - Present",
+    highlights: [
+      "Built an agentic compliance copilot that turns AML/sanctions alerts into examiner-ready case files with grounded evidence citations.",
+      "Engaged mid-sized banks across NJ/NY for 90-day pilots with a commercial pipeline targeting $50K-$70K per bank annually.",
+      "Partnered with BSA/AML officers and ACAMS NJ Chapter members to define evidence standards and success metrics.",
+    ],
+    links: [
+      { label: "Website", href: "https://www.complyai.dev/" },
+      { label: "GitHub", href: "https://github.com/rishikeshydv/complyai_agentic_system" },
+    ] as ResourceLink[],
+  },
+  {
+    company: "NexBrick",
+    role: "Founder & CTO",
+    location: "Caldwell, NJ",
+    period: "Jan 2024 - May 2025",
+    highlights: [
+      "Worked with homeowners and agents to identify high-value workflows and shipped a paid subscription product.",
+      "Selected for LAUNCH Founder University and raised $25K pre-seed with 50+ paid homeowner subscriptions and 10+ annual agent subscriptions.",
+      "Productionized an API-first backend with analytics pipelines and improved report relevance through usage-driven iteration.",
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/rishikeshydv/nexbrick" }] as ResourceLink[],
+  },
+  {
+    company: "Tapdrop",
+    role: "AI Engineer",
+    location: "Dublin, TX",
+    period: "Aug 2022 - Feb 2024",
+    highlights: [
+      "Deployed RL-based NPC behavior and difficulty scaling with p95 inference latency <= 12ms while maintaining 60 FPS.",
+      "Reduced model size from 120MB to 45MB (-62%), improved load time by ~30%, and cut runtime memory usage by ~25%.",
+      "Built an evaluation harness for NPC quality and reduced unfair-difficulty incidents by ~35%.",
+    ],
+    links: [
+      { label: "Company", href: "https://www.linkedin.com/company/tapdrop/posts/?feedView=all" },
+    ] as ResourceLink[],
+  },
+  {
+    company: "CogAI Lab & STEM Advance Program, Caldwell University",
+    role: "AI/ML Researcher",
+    location: "Caldwell, NJ",
+    period: "May 2023 - Aug 2023",
+    highlights: [
+      "Implemented 10+ CNN image detection models in Python/TensorFlow/Keras and improved non-backprop performance to 98% accuracy.",
+      "Built an activation-based filter update/pruning workflow and improved CNN accuracy by 5.67% while reducing training time by ~30.5 seconds.",
+    ],
+    links: [{ label: "Lab", href: "https://sites.google.com/caldwell.edu/cogai" }] as ResourceLink[],
+  },
+  {
+    company: "Caldwell University",
+    role: "Software Engineering Intern",
+    location: "Caldwell, NJ",
+    period: "Jan 2023 - May 2023",
+    highlights: [
+      "Shipped backend features for a production web platform with API-first services and technical documentation.",
+      "Implemented 20+ automated test cases across unit, integration, and e2e suites.",
+      "Delivered a responsive database management web app used by 8,000+ users with Firebase-backed REST APIs.",
+    ],
+    links: [] as ResourceLink[],
+  },
+];
 
-import { IoLogoFirebase } from "react-icons/io5";
-import { FaAws } from "react-icons/fa";
-import { BiLogoPostgresql } from "react-icons/bi";
-import { BiLogoMongodb } from "react-icons/bi";
-import { GrHadoop } from "react-icons/gr";
-import { DiRedis } from "react-icons/di";
+const projects = [
+  {
+    name: "Intent - Cursor for Product Managers",
+    points: [
+      "Built a product-decision copilot that synthesizes feedback into ranked priorities and scoped execution plans with approval gates.",
+      "Reached early traction with 2 paying customers and iterated weekly from usage data and customer feedback.",
+      "Tech: Python, FastAPI, PostgreSQL, OAuth2, OpenRouter, Embeddings/RAG, Docker, pytest, Google APIs.",
+    ],
+    links: [
+      { label: "Website", href: "https://www.tryintent.dev/" },
+      { label: "GitHub", href: "https://github.com/rishikeshydv/intent" },
+      { label: "Demo", href: "https://www.tryintent.dev/" },
+    ] as ResourceLink[],
+  },
+  {
+    name: "cdo.ai - AI Chief Design Officer",
+    points: [
+      "Research proposal on retraining open-source coding LLMs to reason like a chief design officer for strategic, brand-aligned web design.",
+      "Tech: Python, Azure OpenAI, PyTorch, Hugging Face, LoRA/QLoRA (PEFT).",
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/rishikeshydv/cdo.ai" },
+      {
+        label: "Research Proposal",
+        href: "https://docs.google.com/document/d/1VpEq4aZeLlwnHyknhfrGVK20YgoLdO9C-sjkjmjsiS4/edit?usp=sharing",
+      },
+    ] as ResourceLink[],
+  },
+];
 
-import { FaGithubSquare } from "react-icons/fa";
-import { FaDocker } from "react-icons/fa";
-import { SiKubernetes } from "react-icons/si";
-import { SiAwsamplify } from "react-icons/si";
+const skills = {
+  generativeAI: [
+    "LangChain",
+    "Agent workflows",
+    "Prompt iteration",
+    "RAG with citations",
+    "Structured outputs",
+  ],
+  engineeringML: [
+    "Python",
+    "Go",
+    "Node.js",
+    "REST APIs",
+    "Firebase",
+    "Vercel",
+    "TensorFlow / Keras",
+    "Unit / integration / e2e testing",
+  ],
+};
+
+type TabKey = "education" | "experience" | "skills" | "projects" | "publication";
+
+const tabs: { key: TabKey; label: string }[] = [
+  { key: "experience", label: "Experience" },
+  { key: "education", label: "Education" },
+  { key: "skills", label: "Skills" },
+  { key: "projects", label: "Projects" },
+  { key: "publication", label: "Publication" },
+];
+
+const activeTabStyles: Record<TabKey, string> = {
+  experience: "bg-zinc-500 text-white",
+  education: "bg-zinc-500 text-white",
+  skills: "bg-zinc-500 text-white",
+  projects: "bg-zinc-500 text-white",
+  publication: "bg-zinc-500 text-white",
+};
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<TabKey>("experience");
+
   return (
-    <div className={`${poppins.className}`}>
-          <div className="flex flex-col min-h-[100dvh] bg-background text-foreground">
-      <main className="flex-1 container mx-auto px-4 lg:px-6 py-12 md:py-16 lg:py-20">
-        <section className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Rishikesh Yadav</h1>
-            <h2 className="text-2xl md:text-3xl font-medium text-muted-foreground">Software, AI & Web3 Engineer</h2>
-            <p className="text-muted-foreground">
-            My name is Rishikesh, and I am a Junior at Caldwell for a Bachelor of Science (BS) in Computer Science and Mathematics. 
-            I love doing Deep RL, Backend, and Web3 Dev. 
-            I&apos;m most passionate about the use of tech to solve problems that really matters (not leetcode ofc). 
-            I like to spend my free time reading and listening to podcasts, with some of my favorite topics being startups and AI. 
-            If you&apos;d like to connect, please reach out to <strong>rishikeshadh4 at gmail dot com</strong>.
-            </p>
-          </div>
-          <div className="flex flex-col items-center justify-center md:items-end md:justify-end">
-                    <Image
-            src="/linkedin.jpg"
-            width={200}
-            height={200}
-            alt="Rishi's profile picture"
-            className={`${styles.circular}`} // Add a new class
-          />
-           <nav className="flex items-center gap-4 md:mr-10 mt-4">
-          <Link href="https://www.linkedin.com/in/rishikesh-y-0194b0336/" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-          <FaLinkedin className="md:w-6 md:h-6"/>
-          </Link>
-          <Link href="https://github.com/rishikeshydv" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-          <FaGithub className="md:w-6 md:h-6"/>
-          </Link>
-          <Link href="mailto:rishikeshadh4@gmail.com" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-          <MdEmail className="md:w-7 md:h-7"/>
-          </Link>
-        </nav>
-          </div>
-        </section>
-        <section className="mt-12 md:mt-16 lg:mt-20 space-y-8">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Work Experience</h2>
-            <div className="space-y-6">
-              <div className="grid md:grid-cols-[1fr_3fr] gap-4">
-                <div className="text-muted-foreground">
-                  <Link href={'https://www.nextbrick.com/'} className="font-medium underline">NexBrick</Link>
-                  <div className="text-sm">2024 Feb - Present</div>
-                </div>
-                <div>
-                  <div className="font-medium">CEO & CTO</div>
-                  <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Revolutionizing real estate decisions with AI-driven data intelligence.</li>
-                  </ul>
+    <div className={poppins.className}>
+      <div className="min-h-[100dvh] bg-gradient-to-b from-zinc-50 via-white to-zinc-100 text-foreground">
+        <main className="mx-auto max-w-4xl px-4 py-8 md:py-12">
+          <header className="mb-10 flex items-center justify-between border-b border-zinc-200 pb-4">
+            <div>
+              <p className="text-lg font-semibold tracking-tight">Rishikesh Yadav</p>
+              <p className="text-sm text-muted-foreground">Founder & AI Engineer</p>
+            </div>
+            <nav className="flex items-center gap-3 text-zinc-600">
+              <Link
+                href="https://www.linkedin.com/in/rishikesh-y-75846420b/"
+                className="rounded-md p-2 transition hover:bg-zinc-100"
+                prefetch={false}
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="h-5 w-5" />
+              </Link>
+              <Link
+                href="https://github.com/rishikeshydv?tab=repositories"
+                className="rounded-md p-2 transition hover:bg-zinc-100"
+                prefetch={false}
+                aria-label="GitHub"
+              >
+                <FaGithub className="h-5 w-5" />
+              </Link>
+              <Link
+                href="mailto:ryadav@caldwell.edu"
+                className="rounded-md p-2 transition hover:bg-zinc-100"
+                prefetch={false}
+                aria-label="Email"
+              >
+                <MdEmail className="h-5 w-5" />
+              </Link>
+            </nav>
+          </header>
+
+          <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm md:p-8">
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div className="space-y-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                  About
+                </p>
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+                  Building production AI systems that solve real business problems.
+                </h1>
+                <p className="max-w-2xl text-sm leading-7 text-zinc-600 md:text-base">
+                  I&apos;m pursuing a BS in Computer Science and Mathematics at Caldwell University
+                  (Spring 2026, GPA 3.93). My focus is agent workflows, retrieval systems with
+                  grounded citations, and reliable backend infrastructure for production.
+                </p>
+                <div className="flex flex-wrap gap-2 text-sm text-zinc-600">
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Caldwell, NJ</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">ryadav@caldwell.edu</span>
+                  <Link
+                    className="rounded-full bg-zinc-100 px-3 py-1 transition hover:bg-zinc-200"
+                    href="http://www.rishikeshyadav.me"
+                  >
+                    rishikeshyadav.me
+                  </Link>
                 </div>
               </div>
-              <div className="grid md:grid-cols-[1fr_3fr] gap-4">
-                <div className="text-muted-foreground">
-                  <Link href={'https://tapdroprb.com/'} className="font-medium underline">Tapdrop Inc.</Link>
-                  <div className="text-sm">2022 August - 2025 Feb</div>
-                </div>
-                <div>
-                  <div className="font-medium">Senior AI & Software Engineer</div>
-                  <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Created adaptive NPCs and real-time difficulty scaling using reinforcement learning and neural networks, enhancing player immersion through AI-driven responses.</li>
-                    <li> Implemented deep learning models for procedural content generation, enabling dynamic environments and unpredictable challenges.</li>
-                    <li>Optimized game engine performance with GPU-accelerated neural networks for real-time AI processing, delivering smooth and responsive AI interactions.</li>
-                    <li>Collaborated on AI-based predictive player modeling to refine game balancing, tailoring experiences based on player behavior and preferences.</li>
-                  </ul>
-                </div>
-              </div>
-              {/* <div className="grid md:grid-cols-[1fr_3fr] gap-4">
-                <div className="text-muted-foreground">
-                  <div className="font-medium underline">STEM Advance Summer Research Program</div>
-                  <div className="text-sm">2023 May - 2023 August</div>
-                </div>
-                <div>
-                  <div className="font-medium">AI/ML Research Intern</div>
-                  <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Initialized and constructed 32 of 3x3 filter matrices for each Conv2D layers, generated the updated filter matrices for each Conv2D layer after each training.</li>
-                    <li>Consistently removed filters with least activations and kept maximum of 32 filters with most activations maintaining strict uniformity in the shapes of training data and labels.</li>
-                    <li>Crafted a highly efficient CNN model with a 5.67% boost in accuracy and reduction in the training time by 30.5 seconds.</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-[1fr_3fr] gap-4">
-                <div className="text-muted-foreground">
-                  <div className="font-medium underline">Caldwell University</div>
-                  <div className="text-sm">2023 Jan - 2023 May</div>
-                </div>
-                <div>
-                  <div className="font-medium">Software Engineering Intern</div>
-                  <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li>Devised backend solutions and software components, enforced the detailed documentation, and contributed to the development of legacy applications in C# and .NET Core</li>
-                    <li>Incorporated 20+ complex test cases, performed unit tests, integration tests, and end-to-end tests to evaluate the solution efficiency.</li>
-                    <li>Designed and customized responsive web based database management system software to help 8k+ university users manage personal and public data and process using Firebase and REST APIs</li>
-                  </ul>
-                </div>
-              </div> */}
+              <Image
+                src="/linkedin.jpg"
+                width={140}
+                height={140}
+                alt="Rishikesh Yadav profile photo"
+                className={styles.circular}
+                priority
+              />
             </div>
-          </div>
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Education</h2>
-            <div className="space-y-6">
-              <div className="grid md:grid-cols-[1fr_3fr] gap-4">
-                <div className="text-muted-foreground">
-                  <div className="font-medium">Caldwell University</div>
-                  <div className="font-sm">Junior Year</div>
-                  <div className="text-sm">2022 August - Present</div>
-                </div>
-                <div>
-                  <div className="font-medium">Bachelor of Science in Computer Science & Mathematics</div>
-                  <ul className="mt-2 space-y-2 text-muted-foreground">
-                    <li><strong>GPA:</strong> 3.93/4.00</li>
-                    <li><strong>Courseworks:</strong> SWE Capstone, Data Structures & Algorithms, Database Management System, Operating Systems, Full Stack Web Dev, Intro to Machine Learning, Linear Algebra, Probability & Statistics I & II, Programming Languages</li>
-                  </ul>
-                </div>
+          </section>
+
+          <section className="mt-10">
+            <div className="rounded-xl border border-zinc-200 bg-white p-2 shadow-sm">
+              <div role="tablist" aria-label="Portfolio sections" className="flex flex-wrap gap-2">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.key}
+                    role="tab"
+                    type="button"
+                    id={`tab-${tab.key}`}
+                    aria-selected={activeTab === tab.key}
+                    aria-controls={`panel-${tab.key}`}
+                    onClick={() => setActiveTab(tab.key)}
+                    className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                      activeTab === tab.key
+                        ? `${activeTabStyles[tab.key]} shadow-sm`
+                        : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
               </div>
             </div>
-          </div>
-          <div>
-          <h2 className="text-2xl font-bold mb-4">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="text-lg font-semibold">Programming Languages</h3>
-              <ul className="mt-2 space-y-1 text-muted-foreground">
-                <li className="flex gap-2">Typescript <SiTypescript className="mt-1"/></li>
-                <li className="flex gap-2">Golang <FaGolang className="mt-1"/></li>
-                <li className="flex gap-2">Rust <FaRust className="mt-1"/></li>
-                <li className="flex gap-2">Python <FaPython className="mt-1"/></li>
-              </ul>
+
+            <div
+              id={`panel-${activeTab}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${activeTab}`}
+              className="mt-4"
+            >
+              {activeTab === "experience" ? (
+                <div className="space-y-4">
+                  {experience.map((item) => (
+                    <article
+                      key={`${item.company}-${item.role}`}
+                      className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"
+                    >
+                      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+                        <h2 className="text-base font-semibold">
+                          {item.role} · <span className="text-zinc-700">{item.company}</span>
+                        </h2>
+                        <p className="text-sm text-zinc-500">{item.period}</p>
+                      </div>
+                      <p className="mb-3 text-sm text-zinc-500">{item.location}</p>
+                      {item.links.length > 0 ? (
+                        <div className="mb-3 flex flex-wrap gap-2">
+                          {item.links.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className="inline-flex items-center gap-1 rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700 transition hover:bg-zinc-200"
+                              prefetch={false}
+                            >
+                              {link.label}
+                              <FiExternalLink className="h-3.5 w-3.5" />
+                            </Link>
+                          ))}
+                        </div>
+                      ) : null}
+                      <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-700">
+                        {item.highlights.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              ) : null}
+
+              {activeTab === "education" ? (
+                <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                  <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+                    <h2 className="text-base font-semibold">Caldwell University</h2>
+                    <p className="text-sm text-zinc-500">Expected Graduation: Spring 2026</p>
+                  </div>
+                  <p className="text-sm text-zinc-700">BS in Computer Science and Mathematics</p>
+                  <p className="mt-2 text-sm text-zinc-600">GPA: 3.93 / 4.00</p>
+                  <p className="mt-2 text-sm leading-6 text-zinc-600">
+                    Coursework: Data Structures & Algorithms, DBMS, Operating Systems, Full Stack Web
+                    Dev, Artificial Intelligence, Programming Languages, SWE Capstone, Linear Algebra,
+                    Probability & Statistics I & II.
+                  </p>
+                </article>
+              ) : null}
+
+              {activeTab === "skills" ? (
+                <div className="grid gap-4 md:grid-cols-2">
+                  <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <h2 className="text-base font-semibold">Generative AI</h2>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {skills.generativeAI.map((skill) => (
+                        <span key={skill} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                  <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <h2 className="text-base font-semibold">Engineering / ML</h2>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {skills.engineeringML.map((skill) => (
+                        <span key={skill} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                </div>
+              ) : null}
+
+              {activeTab === "projects" ? (
+                <div className="space-y-4">
+                  {projects.map((project) => (
+                    <article key={project.name} className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                      <h2 className="text-base font-semibold">{project.name}</h2>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {project.links.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            className="inline-flex items-center gap-1 rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700 transition hover:bg-zinc-200"
+                            prefetch={false}
+                          >
+                            {link.label}
+                            <FiExternalLink className="h-3.5 w-3.5" />
+                          </Link>
+                        ))}
+                      </div>
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-700">
+                        {project.points.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              ) : null}
+
+              {activeTab === "publication" ? (
+                <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm leading-7 text-zinc-700">
+                    Veksler, V.D., Gedenidze, N., & Yadav, R. (2023). Visual Cortex Doesn&apos;t
+                    Change, Why Should Convolutional Layers? The 16th International Conference on
+                    Brain Informatics, Hoboken, NJ, USA.{" "}
+                    <Link
+                      href="https://wi-consortium.org/conferences/bi2023/pdf/BI%202023%20Abstract%20Notes.pdf"
+                      className="inline-flex items-center gap-1 underline underline-offset-4"
+                      prefetch={false}
+                    >
+                      Link <FiExternalLink className="h-3.5 w-3.5" />
+                    </Link>
+                  </p>
+                </article>
+              ) : null}
             </div>
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="text-lg font-semibold">Frameworks and Tools</h3>
-              <ul className="mt-2 space-y-1 text-muted-foreground">
-                <li className="flex gap-2">React < FaReact className="mt-1"/></li>
-                <li className="flex gap-2">Node.js < FaNodeJs className="mt-1"/></li>
-                <li className="flex gap-2">Express < SiExpress className="mt-1"/></li>
-                <li className="flex gap-2">Nextjs < RiNextjsFill className="mt-1"/></li>
-                <li className="flex gap-2">Vite < SiVite className="mt-1"/></li>
-                <li className="flex gap-2">Tensorflow < SiTensorflow className="mt-1"/></li>
-                <li className="flex gap-2">Keras < SiKeras className="mt-1"/></li>
-                <li className="flex gap-2">Kafka < SiApachekafka className="mt-1"/></li>
-              </ul>
-            </div>
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="text-lg font-semibold">Databases</h3>
-              <ul className="mt-2 space-y-1 text-muted-foreground">
-                <li className="flex gap-2">Firebase < IoLogoFirebase className="mt-1"/></li>
-                <li className="flex gap-2">AWS S3 & DynamoDB < FaAws className="mt-1"/></li>
-                <li className="flex gap-2">Postgresl < BiLogoPostgresql className="mt-1"/></li>
-                <li className="flex gap-2">MongoDB < BiLogoMongodb className="mt-1"/></li>
-                <li className="flex gap-2">Apache Hadoop < GrHadoop className="mt-1"/></li>
-                <li className="flex gap-2">Redis < DiRedis className="mt-1"/></li>
-              </ul>
-            </div>
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="text-lg font-semibold">Devops</h3>
-              <ul className="mt-2 space-y-1 text-muted-foreground">
-                <li className="flex gap-2">Git < FaGithubSquare className="mt-1"/></li>
-                <li className="flex gap-2">Docker < FaDocker className="mt-1"/></li>
-                <li className="flex gap-2">Kubernetes < SiKubernetes className="mt-1"/></li>
-                <li className="flex gap-2">AWS ECR,ECS, & EC2 < FaAws className="mt-1"/></li>
-                <li className="flex gap-2">AWS Amplify < SiAwsamplify className="mt-1"/></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        </section>
-      </main>
-    </div>
+          </section>
+        </main>
+      </div>
     </div>
   );
-}
-
-
-function MountainIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
-  )
-}
-
-
-function XIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 6 6 18" />
-      <path d="m6 6 12 12" />
-    </svg>
-  )
 }
