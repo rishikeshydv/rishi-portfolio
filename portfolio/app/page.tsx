@@ -17,13 +17,13 @@ type ResourceLink = {
 const experience = [
   {
     company: "ComplyAI",
-    role: "Founder",
+    role: "Founding AI Engineer",
     location: "Caldwell, NJ",
-    period: "Oct 2025 - Present",
+    period: "Jan 2025 - Present",
     highlights: [
-      "Built an agentic compliance copilot that turns AML/sanctions alerts into examiner-ready case files with grounded evidence citations.",
-      "Engaged mid-sized banks across NJ/NY for 90-day pilots with a commercial pipeline targeting $50K-$70K per bank annually.",
-      "Partnered with BSA/AML officers and ACAMS NJ Chapter members to define evidence standards and success metrics.",
+      "Built a production agentic RAG copilot converting AML/sanctions alerts into examiner-ready case files with grounded evidence citations — requiring explainability, auditability, and high citation coverage in a regulated environment.",
+      "Designed multi-agent orchestration pipeline combining retrieval, tool-use, and structured output templates; collaborated with BSA/AML officers and ACAMS NJ Chapter to define evidence standards and reviewer acceptance metrics.",
+      "Engaged mid-sized banks (Valley, OceanFirst, Citi, Columbia) for 90-day pilots; commercial pipeline targets $50K–$70K ARR per institution.",
     ],
     links: [
       { label: "Website", href: "https://www.complyai.dev/" },
@@ -32,13 +32,13 @@ const experience = [
   },
   {
     company: "NexBrick",
-    role: "Founder & CTO",
+    role: "Founding Engineer",
     location: "Caldwell, NJ",
-    period: "Jan 2024 - May 2025",
+    period: "Jan 2024 - Jan 2025",
     highlights: [
-      "Worked with homeowners and agents to identify high-value workflows and shipped a paid subscription product.",
-      "Selected for LAUNCH Founder University and raised $25K pre-seed with 50+ paid homeowner subscriptions and 10+ annual agent subscriptions.",
-      "Productionized an API-first backend with analytics pipelines and improved report relevance through usage-driven iteration.",
+      "Ran rapid POCs for property history retrieval, tracking, and insight scoring; shipped a paid subscription product iterated on real usage signals.",
+      "Selected for LAUNCH Founder University (Jason Calacanis); raised $5K pre-seed. Achieved early revenue with 50+ paid homeowner subscriptions and 10+ agent annual subscriptions.",
+      "Productionized platform with API-first backend and analytics pipelines; improved relevance through usage-driven iteration.",
     ],
     links: [{ label: "GitHub", href: "https://github.com/rishikeshydv/nexbrick" }] as ResourceLink[],
   },
@@ -46,11 +46,11 @@ const experience = [
     company: "Tapdrop",
     role: "AI Engineer",
     location: "Dublin, TX",
-    period: "Aug 2022 - Feb 2024",
+    period: "Aug 2022 - Jan 2024",
     highlights: [
-      "Deployed RL-based NPC behavior and difficulty scaling with p95 inference latency <= 12ms while maintaining 60 FPS.",
-      "Reduced model size from 120MB to 45MB (-62%), improved load time by ~30%, and cut runtime memory usage by ~25%.",
-      "Built an evaluation harness for NPC quality and reduced unfair-difficulty incidents by ~35%.",
+      "Deployed RL-based NPC behavior and difficulty scaling with production constraints; achieved p95 inference latency ≤ 12ms and maintained 60 FPS on target hardware.",
+      "Optimized GPU inference and reduced model size from 120MB → 45MB (-62%), improving load time by ~30% and reducing runtime memory usage by ~25%.",
+      "Built an evaluation harness for NPC behavior quality (win-rate balance, difficulty curve, policy regressions) and reduced unfair-difficulty incidents by ~35%.",
     ],
     links: [
       { label: "Company", href: "https://www.linkedin.com/company/tapdrop/posts/?feedView=all" },
@@ -60,10 +60,10 @@ const experience = [
     company: "CogAI Lab & STEM Advance Program, Caldwell University",
     role: "AI/ML Researcher",
     location: "Caldwell, NJ",
-    period: "May 2023 - Aug 2023",
+    period: "May 2022 - Aug 2022",
     highlights: [
-      "Implemented 10+ CNN image detection models in Python/TensorFlow/Keras and improved non-backprop performance to 98% accuracy.",
-      "Built an activation-based filter update/pruning workflow and improved CNN accuracy by 5.67% while reducing training time by ~30.5 seconds.",
+      "Implemented 10+ CNN image detection models in Python/TensorFlow/Keras; improved non-backprop performance to 98% accuracy via transfer learning and filter pruning.",
+      "Built activation-based filter update/pruning workflow; improved CNN accuracy by 5.67% and reduced training time by ~30.5 seconds.",
     ],
     links: [{ label: "Lab", href: "https://sites.google.com/caldwell.edu/cogai" }] as ResourceLink[],
   },
@@ -71,11 +71,11 @@ const experience = [
     company: "Caldwell University",
     role: "Software Engineering Intern",
     location: "Caldwell, NJ",
-    period: "Jan 2023 - May 2023",
+    period: "Jan 2022 - May 2022",
     highlights: [
-      "Shipped backend features for a production web platform with API-first services and technical documentation.",
-      "Implemented 20+ automated test cases across unit, integration, and e2e suites.",
-      "Delivered a responsive database management web app used by 8,000+ users with Firebase-backed REST APIs.",
+      "Shipped backend features for a production web platform, building API-first services and maintaining clear technical documentation to support ongoing iterations and releases.",
+      "Implemented 20+ automated test cases across unit, integration, and end-to-end suites to improve reliability and prevent regressions during deployment.",
+      "Delivered a responsive database management web app used by 8,000+ university users; integrated authentication, data workflows, and REST APIs backed by Firebase to support secure personal/public data operations.",
     ],
     links: [] as ResourceLink[],
   },
@@ -85,9 +85,9 @@ const projects = [
   {
     name: "Intent - Cursor for Product Managers",
     points: [
-      "Built a product-decision copilot that synthesizes feedback into ranked priorities and scoped execution plans with approval gates.",
-      "Reached early traction with 2 paying customers and iterated weekly from usage data and customer feedback.",
-      "Tech: Python, FastAPI, PostgreSQL, OAuth2, OpenRouter, Embeddings/RAG, Docker, pytest, Google APIs.",
+      "Product-decision copilot synthesizing feedback into ranked priorities and scoped execution plans with approval gates; opens PRs directly in GitHub.",
+      "Reached early traction with 2 paying customers; iterate weekly based on usage signals and customer feedback.",
+      "Tech: Python, FastAPI, PostgreSQL, OAuth2, OpenRouter, Embeddings/RAG, Docker, pytest.",
     ],
     links: [
       { label: "Website", href: "https://www.tryintent.dev/" },
@@ -98,8 +98,8 @@ const projects = [
   {
     name: "cdo.ai - AI Chief Design Officer",
     points: [
-      "Research proposal on retraining open-source coding LLMs to reason like a chief design officer for strategic, brand-aligned web design.",
-      "Tech: Python, Azure OpenAI, PyTorch, Hugging Face, LoRA/QLoRA (PEFT).",
+      "Research project fine-tuning open-source LLMs (qwen2.5:14b) with LoRA/QLoRA to generate strategic, brand-aligned web design beyond generic UI output.",
+      "Tech: Python, Azure OpenAI, PyTorch, Hugging Face (Transformers/Datasets), LoRA/QLoRA (PEFT).",
     ],
     links: [
       { label: "GitHub", href: "https://github.com/rishikeshydv/cdo.ai" },
@@ -112,22 +112,55 @@ const projects = [
 ];
 
 const skills = {
-  generativeAI: [
+  aiLLM: [
     "LangChain",
-    "Agent workflows",
-    "Prompt iteration",
-    "RAG with citations",
+    "AWS Strands",
+    "Google ADK",
+    "Multi-agent orchestration",
+    "Prompt engineering",
     "Structured outputs",
+    "Tool calling",
+    "Fine-tuning (LoRA/QLoRA)",
+    "HuggingFace",
+    "Transformers",
+    "PyTorch",
+    "TensorFlow/Keras",
   ],
-  engineeringML: [
+  retrievalRAG: [
+    "Embeddings",
+    "PineconeDB",
+    "ElasticSearch",
+    "Cohere Rerank",
+    "Hybrid semantic + lexical retrieval",
+    "RAG pipeline design",
+    "Retrieval optimization",
+    "Reranking pipelines",
+    "Context window optimization",
+  ],
+  evalObservability: [
+    "LLM evaluation pipelines",
+    "Retrieval quality evaluation",
+    "Hallucination detection",
+    "Groundedness/citation validation",
+    "Policy regression testing",
+    "Eval harness design",
+    "Prompt & output consistency testing",
+    "Unit/integration/e2e testing",
+    "pytest",
+  ],
+  engineering: [
     "Python",
     "Go",
+    "TypeScript",
+    "React",
     "Node.js",
+    "FastAPI",
     "REST APIs",
-    "Firebase",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
     "Vercel",
-    "TensorFlow / Keras",
-    "Unit / integration / e2e testing",
+    "AWS Services",
   ],
 };
 
@@ -159,7 +192,7 @@ export default function Home() {
           <header className="mb-10 flex items-center justify-between border-b border-zinc-200 pb-4">
             <div>
               <p className="text-lg font-semibold tracking-tight">Rishikesh Yadav</p>
-              <p className="text-sm text-muted-foreground">Founder & AI Engineer</p>
+              <p className="text-sm text-muted-foreground">Founding AI Engineer</p>
             </div>
             <nav className="flex items-center gap-3 text-zinc-600">
               <Link
@@ -313,9 +346,9 @@ export default function Home() {
               {activeTab === "skills" ? (
                 <div className="grid gap-4 md:grid-cols-2">
                   <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
-                    <h2 className="text-base font-semibold">Generative AI</h2>
+                    <h2 className="text-base font-semibold">AI / LLM Systems</h2>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {skills.generativeAI.map((skill) => (
+                      {skills.aiLLM.map((skill) => (
                         <span key={skill} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700">
                           {skill}
                         </span>
@@ -323,9 +356,29 @@ export default function Home() {
                     </div>
                   </article>
                   <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
-                    <h2 className="text-base font-semibold">Engineering / ML</h2>
+                    <h2 className="text-base font-semibold">Retrieval & RAG</h2>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {skills.engineeringML.map((skill) => (
+                      {skills.retrievalRAG.map((skill) => (
+                        <span key={skill} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                  <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <h2 className="text-base font-semibold">Evaluation & Observability</h2>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {skills.evalObservability.map((skill) => (
+                        <span key={skill} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                  <article className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <h2 className="text-base font-semibold">Engineering</h2>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {skills.engineering.map((skill) => (
                         <span key={skill} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700">
                           {skill}
                         </span>
