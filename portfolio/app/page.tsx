@@ -232,13 +232,11 @@ export default function Home() {
                   Building production AI systems that solve real business problems.
                 </h1>
                 <p className="max-w-2xl text-sm leading-7 text-zinc-600 md:text-base">
-                  I&apos;m pursuing a BS in Computer Science and Mathematics at Caldwell University
-                  (Spring 2026, GPA 3.93). My focus is agent workflows, retrieval systems with
-                  grounded citations, and reliable backend infrastructure for production.
+                  CS and Mathematics graduate from Caldwell University. I build production-grade agentic systems — multi-agent RAG pipelines, retrieval with grounded citations, and backend infrastructure that holds up in regulated environments.
                 </p>
                 <div className="flex flex-wrap gap-2 text-sm text-zinc-600">
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Caldwell, NJ</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">ryadav@caldwell.edu</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">rishikeshadh4@gmail.com</span>
                   <Link
                     className="rounded-full bg-zinc-100 px-3 py-1 transition hover:bg-zinc-200"
                     href="http://www.rishikeshyadav.me"
